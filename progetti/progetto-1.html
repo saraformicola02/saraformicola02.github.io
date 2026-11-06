@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details | Sara Formicola</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons Library -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Custom Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            crema: '#FDFBF7',
+            cremaScuro: '#F4EFE6',
+            verdedatabase: '#1C2A23',
+            verdeForesta: '#2D5A27',
+            verdeOliva: '#556B2F',
+            terraSiena: '#C86D51',
+            // Colori Dark Mode
+            darkBg: '#121C17',
+            darkCard: '#1A2821',
+            darkBorder: '#273B31',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Stili Cursore Personalizzato -->
+  <style>
+    body {
+      cursor: default;
+    }
+    #custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(135, 169, 107, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 15px rgba(135, 169, 107, 0.8), 0 0 30px rgba(135, 169, 107, 0.4);
+      transition: transform 0.15s ease-out, background-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+    }
+    a:hover ~ #custom-cursor, button:hover ~ #custom-cursor {
+      width: 32px;
+      height: 32px;
+      background-color: rgba(200, 109, 81, 0.5);
+      box-shadow: 0 0 20px rgba(200, 109, 81, 0.8);
+    }
+  </style>
+</head>
+<body class="bg-crema dark:bg-darkBg text-verdedatabase dark:text-slate-200 font-sans antialiased transition-colors duration-300">
+
+  <!-- Elemento Cursore -->
+  <div id="custom-cursor"></div>
+
+  <!-- Header / Navigation -->
+  <header class="bg-crema dark:bg-darkBg border-b border-cremaScuro dark:border-darkBorder py-4 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+      <a href="../index.html" class="text-verdeForesta dark:text-emerald-400 hover:text-terraSiena dark:hover:text-emerald-300 font-semibold flex items-center gap-2 transition">
+        <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Home
+      </a>
+
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="p-2 rounded-full border border-cremaScuro dark:border-darkBorder bg-white dark:bg-darkCard hover:bg-cremaScuro dark:hover:bg-darkBorder transition text-slate-700 dark:text-slate-200" title="Switch Theme">
+        <i id="theme-icon-sun" data-lucide="sun" class="w-5 h-5 hidden dark:block text-amber-400"></i>
+        <i id="theme-icon-moon" data-lucide="moon" class="w-5 h-5 block dark:hidden text-verdeForesta"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-10 space-y-10">
+
+    <!-- Top Grid: Image Gallery (Left) & Explanation (Right) -->
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+      
+      <!-- Image Carousel Gallery -->
+      <div class="relative rounded-2xl overflow-hidden border border-cremaScuro dark:border-darkBorder shadow-md bg-slate-900 group">
+        <div id="carouselImages" class="flex transition-transform duration-500 ease-out">
+          <img src="../assets/img/Screenshot 2026-06-11 100936.png" alt="Project Image 1" class="w-full h-[380px] object-cover flex-shrink-0">
+          <img src="../assets/img/Screenshot 2026-06-11 101028.png" alt="Project Image 2" class="w-full h-[380px] object-cover flex-shrink-0">
+          <img src="../assets/img/es4.4.png" alt="Project Image 3" class="w-full h-[380px] object-cover flex-shrink-0">
+       </div>
+        <button onclick="prevSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 flex items-center justify-center">
+          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </button>
+        <button onclick="nextSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 flex items-center justify-center">
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Text Column Explanation -->
+     <div class="space-y-4">
+        <span class="text-xs font-bold text-terraSiena dark:text-emerald-500 uppercase tracking-wider flex items-center gap-1">
+          <i data-lucide="tag" class="w-3.5 h-3.5"></i> Environmental Assessment
+        </span>
+        <h1 class="text-3xl font-extrabold text-verdeForesta dark:text-emerald-400">Multitemporal NDVI Analysis of Sentinel-2 Data in Google Earth Engine for Assessing the Impact of the Holiday Farm Fire (Oregon, September 2020) on Forest Vegetation</h1>
+       <div class="prose text-slate-700 dark:text-slate-300 leading-relaxed text-sm space-y-3">
+          <p>
+            The work starts from the physical principle of NDVI: chlorophyll absorbs red light while the internal leaf structure strongly reflects near-infrared, so the normalized ratio between the two bands, computed with Sentinel-2 bands B8 and B4, becomes an indicator of vegetation density and health. 
+            The case study is the Holiday Farm Fire, one of the most destructive wildfires in Oregon’s recent history. It started on September 7, 2020, when power lines fell during a strong easterly wind event, and it burned until October 29 across Lane and Linn counties. 
+            
+            In Google Earth Engine, a Sentinel-2 collection was filtered over two time windows, a pre-fire one (July 5 to August 30) and a post-fire one (September 1 to 20). Scenes with more than 50% cloud cover were excluded, the dataset’s radiometric scaling factor was applied, and the index was computed on the mean composite. 
+            To quantify the damage, an NDVI threshold of 0.3 was applied isolating and counting the pixels of healthy vegetation. In the pre-event image the area is dominated by dense forest, with a mean NDVI around 0.80 and interruptions only where watercourses and agricultural or urbanized areas occur. In the post-event image the fire perimeter stands out as a large patch of degraded vegetation surrounded by a ring of intact forest. 
+            The time series shows a mean NDVI of about 0.80 on September 5, a rapid and almost linear decline from the start of the fire, and a brief stabilization near 0.10 around September 10, probably due to reduced wind. By September 14 the values were already negative (about -0.10). The healthy vegetated surface fell from 803 km² to 271 km², a net loss of about 532 km², or 66% of the initial healthy vegetation.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+   <!-- Bottom Box with Links (Report & GEE Code) -->
+    <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-cremaScuro dark:border-darkBorder shadow-sm flex flex-col md:flex-row justify-around gap-6 transition-colors duration-300">
+      <div class="space-y-1">
+        <p class="font-bold text-verdeForesta dark:text-emerald-400 text-lg flex items-center gap-2">
+          <i data-lucide="file-text" class="w-5 h-5 text-terraSiena dark:text-emerald-500"></i> report:
+        </p>
+        <a href="../assets/docs/Ex4_Formicola.pdf" target="_blank" class="text-terraSiena dark:text-emerald-400 hover:underline font-medium text-sm inline-block">
+          Open Complete PDF Report →
+        </a>
+      </div>
+      <div class="space-y-1">
+        <p class="font-bold text-verdeForesta dark:text-emerald-400 text-lg flex items-center gap-2">
+          <i data-lucide="code-2" class="w-5 h-5 text-terraSiena dark:text-emerald-500"></i> codice GEE:
+        </p>
+        <a href="https://gist.github.com/saraformicola02/a44434af21d9ee17841f22a366463371" target="_blank" class="text-terraSiena dark:text-emerald-400 hover:underline font-medium text-sm inline-block">
+          Open Earth Engine Script →
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // 1. Initialize Icons
+    lucide.createIcons();
+
+    // 2. Custom Cursor
+    const cursor = document.getElementById('custom-cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    // 3. Dark Mode Toggle Script
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      htmlElement.classList.add('dark');
+    } else {
+      htmlElement.classList.remove('dark');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // 4. Image Carousel Logic
+    let currentIndex = 0;
+    const container = document.getElementById('carouselImages');
+    const totalSlides = container.children.length;
+
+    function updateCarousel() {
+      container.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+  </script>
+</body>
+</html>

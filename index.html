@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sara Formicola | Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons Library -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Custom Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            crema: '#FDFBF7',
+            cremaScuro: '#F4EFE6',
+            verdedatabase: '#1C2A23',
+            verdeForesta: '#2D5A27',
+            verdeOliva: '#556B2F',
+            terraSiena: '#C86D51',
+            // Colori Dark Mode
+            darkBg: '#121C17',
+            darkCard: '#1A2821',
+            darkBorder: '#273B31',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Stili Personalizzati per il Cursore Verde Salvia e Transizioni Theme -->
+  <style>
+    /* Cursore Personalizzato Verde Salvia */
+    body {
+      cursor: default;
+    }
+    #custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(135, 169, 107, 0.6); /* Verde Salvia semitrasparente */
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 15px rgba(135, 169, 107, 0.8), 0 0 30px rgba(135, 169, 107, 0.4);
+      transition: transform 0.15s ease-out, background-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+    }
+    /* Ingrandimento del cursore sugli elementi cliccabili */
+    a:hover ~ #custom-cursor, button:hover ~ #custom-cursor {
+      width: 32px;
+      height: 32px;
+      background-color: rgba(200, 109, 81, 0.5); /* Sfumatura Terra di Siena in hover */
+      box-shadow: 0 0 20px rgba(200, 109, 81, 0.8);
+    }
+  </style>
+</head>
+<body class="bg-crema dark:bg-darkBg text-verdedatabase dark:text-slate-200 font-sans antialiased transition-colors duration-300">
+
+  <!-- Elemento per il Cursore Personalizzato -->
+  <div id="custom-cursor"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="sticky top-0 bg-crema/90 dark:bg-darkBg/90 backdrop-blur-md border-b border-cremaScuro dark:border-darkBorder z-50 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-xl text-verdeForesta dark:text-emerald-400 tracking-tight">
+        <i data-lucide="leaf" class="w-6 h-6 text-verdeForesta dark:text-emerald-400"></i>
+        <span>Sara Formicola</span>
+      </a>
+
+      <div class="flex items-center gap-6">
+        <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-700 dark:text-slate-300">
+          <a href="#about" class="hover:text-terraSiena dark:hover:text-emerald-400 transition">About</a>
+          <a href="#education" class="hover:text-terraSiena dark:hover:text-emerald-400 transition">Education</a>
+          <a href="#projects" class="hover:text-terraSiena dark:hover:text-emerald-400 transition">Projects</a>
+          <a href="#skills" class="hover:text-terraSiena dark:hover:text-emerald-400 transition">Skills</a>
+          <a href="#contacts" class="hover:text-terraSiena dark:hover:text-emerald-400 transition">Contacts</a>
+        </nav>
+
+        <!-- Toggle Modalità Scura / Chiara -->
+        <button id="theme-toggle" class="p-2 rounded-full border border-cremaScuro dark:border-darkBorder bg-white dark:bg-darkCard hover:bg-cremaScuro dark:hover:bg-darkBorder transition text-slate-700 dark:text-slate-200" title="Switch Theme">
+          <i id="theme-icon-sun" data-lucide="sun" class="w-5 h-5 hidden dark:block text-amber-400"></i>
+          <i id="theme-icon-moon" data-lucide="moon" class="w-5 h-5 block dark:hidden text-verdeForesta"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner Image Section -->
+  <section class="relative w-full h-[70vh] min-h-[450px] bg-slate-800 overflow-hidden flex items-center justify-center">
+    <img src="assets/img/download (2).jpg" alt="Hero Background" class="w-full h-full object-cover opacity-50">
+    <h1 class="absolute text-5xl md:text-6xl font-serif text-white tracking-wide drop-shadow-lg text-center" style="font-family: 'Times New Roman', Times, serif;">
+      Sara Formicola
+    </h1>
+  </section>
+
+  <!-- Hero Profile & Intro Section -->
+  <section class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-10 items-start">
+    <div class="md:col-span-2 space-y-4">
+     <blockquote class="text-2xl md:text-3xl font-serif italic text-verdeForesta dark:text-emerald-400 leading-snug">
+        "Ventos et varium caeli praediscere morem / cura sit ac patrios cultusque habitusque locorum, / et quid quaeque ferat regio et quid quaeque recuset"
+      </blockquote>
+      <h2 class="text-xl font-bold text-terraSiena dark:text-emerald-500">
+        Master’s Student in Environmental Engineering, specializing in Climate Change Mitigation and Adaptation
+      </h2>
+      <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+         I am Sara Formicola, an Environmental Engineering MSc student passionate about environmental protection, sustainable planning and climate change adaptation. My academic background combines earth observation, climatology, risk assessment, geology and hydrology, with hands-on experience in satellite time series analysis, land cover mapping and territorial planning. 
+         
+         Curious, proactive, and quick to learn, with a strong motivation to acquire new knowledge and contribute to innovative projects in sustainability and climate resilience.
+      </p>
+    </div>
+
+    <!-- Contact Box Card -->
+    <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-cremaScuro dark:border-darkBorder shadow-md flex flex-col items-center text-center space-y-4 transition-colors duration-300">
+      <img src="assets/img/IMG_3085.jpg" alt="Sara Formicola" class="w-24 h-24 rounded-full object-cover border-2 border-verdeForesta dark:border-emerald-400">
+      <div>
+        <h3 class="font-bold text-lg text-verdeForesta dark:text-emerald-400">Sara Formicola</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Environmental Engineering • Sapienza University</p>
+      </div>
+      <div class="w-full space-y-3 text-sm text-slate-700 dark:text-slate-300 text-left pt-2 border-t border-cremaScuro dark:border-darkBorder">
+        <p class="flex items-center gap-2">
+          <i data-lucide="phone" class="w-4 h-4 text-terraSiena dark:text-emerald-400"></i>
+          <span class="font-medium">+39 327 978 8961</span>
+        </p>
+        <p class="flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-4 h-4 text-terraSiena dark:text-emerald-400"></i>
+          <span class="font-medium">Rome (IT)</span>
+        </p>
+        <p class="flex items-center gap-2">
+          <i data-lucide="mail" class="w-4 h-4 text-terraSiena dark:text-emerald-400"></i>
+          <span class="font-medium">5302sara@gmail.com</span>
+        </p>
+      </div>
+      <div class="w-full flex gap-2 pt-2">
+        <a href="https://www.linkedin.com/in/sara-formicola-07a3a1405" target="_blank" class="flex-1 py-2 bg-verdeForesta dark:bg-emerald-600 text-crema text-xs font-bold rounded-lg text-center hover:bg-verdeOliva dark:hover:bg-emerald-500 transition flex items-center justify-center gap-1">
+          <i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn
+        </a>
+        <a href="assets/docs/cv.pdf" target="_blank" class="flex-1 py-2 border border-verdeForesta dark:border-emerald-500 text-verdeForesta dark:text-emerald-400 text-xs font-bold rounded-lg text-center hover:bg-verdeForesta hover:text-crema dark:hover:bg-emerald-600 dark:hover:text-white transition flex items-center justify-center gap-1">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Download CV
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+ <section id="about" class="max-w-6xl mx-auto px-6 py-12 border-t border-cremaScuro dark:border-darkBorder">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div class="h-[500px] md:h-full min-h-[450px] bg-slate-200 dark:bg-slate-800 rounded-2xl overflow-hidden border border-cremaScuro dark:border-darkBorder">
+        <img src="assets/img/a0a53984-29cc-4a96-8646-7a82c8a292f6.jpg" alt="About Me Photo" class="w-full h-full object-cover">
+      </div>
+      <div class="space-y-4">
+        <h2 class="text-3xl font-bold text-verdeForesta dark:text-emerald-400 flex items-center gap-2">
+          <i data-lucide="user" class="w-7 h-7"></i> About Me
+        </h2>
+        
+        <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-sm md:text-base">
+          I have always been curious about how the places we live in actually work: why one city becomes hotter than another, how water flows through a landscape, and what satellite data can reveal about things that remain invisible to the naked eye. This curiosity shaped my academic journey and gradually led me to combine different tools and disciplines, from spatial analysis to engineering, to understand environmental processes and apply this knowledge to building more resilient and sustainable places.
+          
+          Today, I am particularly passionate about urban climatology, environmental remote sensing, climate adaptation, and sustainable urban regeneration. What truly interests me is not just understanding how these processes work, but translating that knowledge into practical solutions that people can see, experience, and benefit from in their everyday lives.
+          
+          I am motivated by projects that turn complex environmental challenges into tangible improvements for people and the places they live in, and this is the mindset I bring to every new experience.
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="max-w-6xl mx-auto px-6 py-12 border-t border-cremaScuro dark:border-darkBorder">
+    <h2 class="text-3xl font-bold text-verdeForesta dark:text-emerald-400 text-center mb-10 flex items-center justify-center gap-2">
+      <i data-lucide="graduation-cap" class="w-8 h-8"></i> Education
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- Bachelor Degree Card -->
+      <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-cremaScuro dark:border-darkBorder shadow-sm flex gap-4 items-start transition-colors duration-300">
+        <img src="assets/img/logo Sapienza (rgb).png" alt="Sapienza Logo" class="w-16 h-16 object-contain flex-shrink-0">
+       <div>
+          <h3 class="font-bold text-lg text-verdeForesta dark:text-emerald-400">Bachelor Degree in Environmental Engineering</h3>
+          <p class="text-sm font-semibold text-terraSiena dark:text-emerald-500">Sapienza University of Rome</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Completed</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">Foundational coursework in fluid mechanics, environmental chemistry, hydrology, and mathematics for engineering systems.</p>
+        </div>
+      </div>
+
+      <!-- Master Degree Card -->
+      <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-cremaScuro dark:border-darkBorder shadow-sm flex gap-4 items-start transition-colors duration-300">
+        <img src="assets/img/logo Sapienza (rgb).png" alt="Sapienza Logo" class="w-16 h-16 object-contain flex-shrink-0">
+        <div>
+          <h3 class="font-bold text-lg text-verdeForesta dark:text-emerald-400">Master’s Degree in Environmental Engineering</h3>
+          <p class="text-sm font-semibold text-terraSiena dark:text-emerald-500">Sapienza University of Rome</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Final Year • Specialization: Climate Change Adaptation and Mitigation</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">Advanced studies focused on spatial analysis, remote sensing, urban climatology, and climate-resilient engineering solutions.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects Section (Grid of Images/Cards) -->
+<section id="projects" class="max-w-6xl mx-auto px-6 py-12 border-t border-cremaScuro dark:border-darkBorder">
+    <h2 class="text-3xl font-bold text-verdeForesta dark:text-emerald-400 mb-8 flex items-center gap-2">
+      <i data-lucide="folder-kanban" class="w-7 h-7"></i> Projects
+    </h2>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+      <!-- Project Item 1 -->
+      <a href="progetti/progetto-1.html" class="group block bg-white dark:bg-darkCard rounded-xl overflow-hidden border border-cremaScuro dark:border-darkBorder shadow-sm hover:shadow-md transition">
+        <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
+          <img src="assets/img/Screenshot 2026-06-11 100936.png" alt="Project 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-verdeForesta dark:text-emerald-400 group-hover:text-terraSiena dark:group-hover:text-emerald-300 transition">Multitemporal NDVI Analysis of Sentinel-2 Data in Google Earth Engine for Assessing the Impact of the Holiday Farm Fire (Oregon, September 2020) on Forest Vegetation</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i> Remote Sensing • Google Earth Engine
+          </p>
+        </div>
+      </a>
+
+      <!-- Project Item 2 -->
+      <a href="progetti/progetto-2.html" class="group block bg-white dark:bg-darkCard rounded-xl overflow-hidden border border-cremaScuro dark:border-darkBorder shadow-sm hover:shadow-md transition">
+        <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
+          <img src="assets/img/es4.1.png" alt="Project 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-verdeForesta dark:text-emerald-400 group-hover:text-terraSiena dark:group-hover:text-emerald-300 transition">Multitemporal MNDWI Analysis of Landsat 8 Data in Google Earth Engine for Monitoring Shoreline Retreat at Lake Albano (Castelli Romani)</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i> Remote Sensing • Google Earth Engine
+          </p>
+        </div>
+      </a>
+
+      <!-- Project Item 3 -->
+      <a href="progetti/progetto-3.html" class="group block bg-white dark:bg-darkCard rounded-xl overflow-hidden border border-cremaScuro dark:border-darkBorder shadow-sm hover:shadow-md transition">
+        <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
+          <img src="assets/img/es5.2.png" alt="Project 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-verdeForesta dark:text-emerald-400 group-hover:text-terraSiena dark:group-hover:text-emerald-300 transition">Supervised Classification with a Support Vector Machine (RBF Kernel) of Landsat 8 Imagery in Google Earth Engine for Mapping Deforestation in the Bolivian Rainforest</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i> Remote Sensing • Google Earth Engine
+          </p>
+        </div>
+      </a>
+
+      <!-- Project Item 4 -->
+      <a href="progetti/progetto-4.html" class="group block bg-white dark:bg-darkCard rounded-xl overflow-hidden border border-cremaScuro dark:border-darkBorder shadow-sm hover:shadow-md transition">
+        <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
+          <img src="assets/img/es5.4.png" alt="Project 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-verdeForesta dark:text-emerald-400 group-hover:text-terraSiena dark:group-hover:text-emerald-300 transition">Unsupervised Classification with the K-means Algorithm of Landsat 7 Imagery in Google Earth Engine for Land Cover Mapping of the Island of Mallorca (Spain)</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i> Remote Sensing • Google Earth Engine
+          </p>
+        </div>
+      </a>
+
+  <!-- Project Item 5 -->
+      <a href="progetti/progetto-5.html" class="group block bg-white dark:bg-darkCard rounded-xl overflow-hidden border border-cremaScuro dark:border-darkBorder shadow-sm hover:shadow-md transition">
+        <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
+          <img src="assets/img/Screenshot 2026-11-02 092435.png" alt="Project 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-verdeForesta dark:text-emerald-400 group-hover:text-terraSiena dark:group-hover:text-emerald-300 transition">Urban Microclimate Assessment of the Historic Centre of Frascati (RM) through ENVI-met Modelling</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i> Urban Climate • ENVI-Met
+          </p>
+        </div>
+      </a>
+
+  <!-- Project Item 6 -->
+      <a href="progetti/progetto-6.html" class="group block bg-white dark:bg-darkCard rounded-xl overflow-hidden border border-cremaScuro dark:border-darkBorder shadow-sm hover:shadow-md transition">
+        <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
+          <img src="assets/img/Screenshot 2026-11-02 093829.png" alt="Project 6" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-verdeForesta dark:text-emerald-400 group-hover:text-terraSiena dark:group-hover:text-emerald-300 transition">Hydrological and Hydraulic Risk Assessment of the Mignone River Basin, Including Hydraulic Structure Design</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i> Hydraulic • HEC-RAS, HEC-HMS, QGIS
+          </p>
+        </div>
+      </a>
+
+  <!-- Project Item 7 -->
+      <a href="progetti/progetto-7.html" class="group block bg-white dark:bg-darkCard rounded-xl overflow-hidden border border-cremaScuro dark:border-darkBorder shadow-sm hover:shadow-md transition">
+        <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
+          <img src="assets/img/Screenshot 2026-11-02 092842.png" alt="Project 7" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-verdeForesta dark:text-emerald-400 group-hover:text-terraSiena dark:group-hover:text-emerald-300 transition">Sustainable Territorial Development and Strategic Planning for the La Maddalena Archipelago: A Pilot Project for Regenerating the Former Military Arsenal</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i> Sustainable Development and Planning
+          </p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Skills Section (3-Column Bulleted List) -->
+ <section id="skills" class="max-w-6xl mx-auto px-6 py-12 border-t border-cremaScuro dark:border-darkBorder">
+    <h2 class="text-3xl font-bold text-verdeForesta dark:text-emerald-400 mb-8 text-center flex items-center justify-center gap-2">
+      <i data-lucide="wrench" class="w-7 h-7"></i> Skills
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8 bg-white dark:bg-darkCard p-8 rounded-2xl border border-cremaScuro dark:border-darkBorder shadow-sm transition-colors duration-300">
+      
+      <div>
+        <h3 class="font-bold text-verdeForesta dark:text-emerald-400 text-lg mb-3 border-b border-cremaScuro dark:border-darkBorder pb-2 flex items-center gap-2">
+          <i data-lucide="map" class="w-5 h-5 text-terraSiena dark:text-emerald-500"></i> GIS & Remote Sensing
+        </h3>
+        <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300 list-disc list-inside">
+          <li>Google Earth Engine (GEE)</li>
+          <li>QGIS</li>
+          <li>Envi-Met</li>
+          <li>Sentinel-1, Sentinel-2, Landsat Data</li>
+          <li>Spatial Data Analysis & Mapping</li>
+        </ul>
+      </div>
+
+      <div>
+       <h3 class="font-bold text-verdeForesta dark:text-emerald-400 text-lg mb-3 border-b border-cremaScuro dark:border-darkBorder pb-2 flex items-center gap-2">
+          <i data-lucide="code" class="w-5 h-5 text-terraSiena dark:text-emerald-500"></i> Soft Skills
+        </h3>
+        <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300 list-disc list-inside">
+          <li>English Language</li>
+          <li>Excel</li>
+          <li>Problem Solving</li>
+          <li>Public Speaking</li>
+          <li>Team Working</li>
+          <li>Matlab</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-verdeForesta dark:text-emerald-400 text-lg mb-3 border-b border-cremaScuro dark:border-darkBorder pb-2 flex items-center gap-2">
+          <i data-lucide="cloud-sun" class="w-5 h-5 text-terraSiena dark:text-emerald-500"></i> Domain Expertise
+        </h3>
+        <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300 list-disc list-inside">
+          <li>Climate Change Adaptation & Mitigation</li>
+          <li>Urban Climatology & Heat Islands</li>
+          <li>Environmental Impact Assessment</li>
+          <li>Hydrological Risk Analysis</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer / Contacts -->
+  <footer id="contacts" class="bg-cremaScuro dark:bg-darkCard py-8 border-t border-cremaScuro dark:border-darkBorder mt-12 text-center text-sm text-slate-600 dark:text-slate-400 transition-colors duration-300">
+    <p>© 2026 Sara Formicola • Portfolio Ingegneria Ambientale</p>
+  </footer>
+
+  <!-- Scripts JavaScript: Cursore, Lucide Icons e Modalità Scura -->
+  <script>
+    // 1. Inizializzazione Lucide Icons
+    lucide.createIcons();
+
+    // 2. Movimento Cursore Verde Salvia
+    const cursor = document.getElementById('custom-cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    // 3. Gestione Dark Mode Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    // Controllo preferenza salvata in precedenza
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      htmlElement.classList.add('dark');
+    } else {
+      htmlElement.classList.remove('dark');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  </script>
+</body>
+</html>

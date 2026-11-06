@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details | Sara Formicola</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons Library -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Custom Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            crema: '#FDFBF7',
+            cremaScuro: '#F4EFE6',
+            verdedatabase: '#1C2A23',
+            verdeForesta: '#2D5A27',
+            verdeOliva: '#556B2F',
+            terraSiena: '#C86D51',
+            // Colori Dark Mode
+            darkBg: '#121C17',
+            darkCard: '#1A2821',
+            darkBorder: '#273B31',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Stili Cursore Personalizzato -->
+  <style>
+    body {
+      cursor: default;
+    }
+    #custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(135, 169, 107, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 15px rgba(135, 169, 107, 0.8), 0 0 30px rgba(135, 169, 107, 0.4);
+      transition: transform 0.15s ease-out, background-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+    }
+    a:hover ~ #custom-cursor, button:hover ~ #custom-cursor {
+      width: 32px;
+      height: 32px;
+      background-color: rgba(200, 109, 81, 0.5);
+      box-shadow: 0 0 20px rgba(200, 109, 81, 0.8);
+    }
+  </style>
+</head>
+<body class="bg-crema dark:bg-darkBg text-verdedatabase dark:text-slate-200 font-sans antialiased transition-colors duration-300">
+
+  <!-- Elemento Cursore -->
+  <div id="custom-cursor"></div>
+
+  <!-- Header / Navigation -->
+  <header class="bg-crema dark:bg-darkBg border-b border-cremaScuro dark:border-darkBorder py-4 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+      <a href="../index.html" class="text-verdeForesta dark:text-emerald-400 hover:text-terraSiena dark:hover:text-emerald-300 font-semibold flex items-center gap-2 transition">
+        <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Home
+      </a>
+
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="p-2 rounded-full border border-cremaScuro dark:border-darkBorder bg-white dark:bg-darkCard hover:bg-cremaScuro dark:hover:bg-darkBorder transition text-slate-700 dark:text-slate-200" title="Switch Theme">
+        <i id="theme-icon-sun" data-lucide="sun" class="w-5 h-5 hidden dark:block text-amber-400"></i>
+        <i id="theme-icon-moon" data-lucide="moon" class="w-5 h-5 block dark:hidden text-verdeForesta"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-10 space-y-10">
+
+    <!-- Top Grid: Image Gallery (Left) & Explanation (Right) -->
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+      
+      <!-- Image Carousel Gallery -->
+      <div class="relative rounded-2xl overflow-hidden border border-cremaScuro dark:border-darkBorder shadow-md bg-slate-900 group">
+        <div id="carouselImages" class="flex transition-transform duration-500 ease-out">
+          <img src="../assets/img/es4.1.png" alt="Project Image 1" class="w-full h-[380px] object-cover flex-shrink-0">
+          <img src="../assets/img/es4.2.png" alt="Project Image 2" class="w-full h-[380px] object-cover flex-shrink-0">
+          <img src="../assets/img/es4.3.png" alt="Project Image 3" class="w-full h-[380px] object-cover flex-shrink-0">
+         </div>
+        <button onclick="prevSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 flex items-center justify-center">
+          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </button>
+        <button onclick="nextSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 flex items-center justify-center">
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Text Column Explanation -->
+     <div class="space-y-4">
+        <span class="text-xs font-bold text-terraSiena dark:text-emerald-500 uppercase tracking-wider flex items-center gap-1">
+          <i data-lucide="tag" class="w-3.5 h-3.5"></i> Environmental Assessment
+        </span>
+        <h1 class="text-3xl font-extrabold text-verdeForesta dark:text-emerald-400">Multitemporal MNDWI Analysis of Landsat 8 Data in Google Earth Engine for Monitoring Shoreline Retreat at Lake Albano (Castelli Romani, 2015-2025)</h1>
+       <div class="prose text-slate-700 dark:text-slate-300 leading-relaxed text-sm space-y-3">
+          <p>
+            The theoretical premise concerns water indices. The NDWI combines NIR and SWIR to detect water in vegetation and on surfaces, while the MNDWI variant replaces NIR with the green band, separating open water, vegetation and built-up areas more effectively. 
+            The case study is Lake Albano, the deepest volcanic lake in Italy, whose level has been falling progressively since the 1980s, by about 7 meters in total and about 20 cm per year at present, with an estimated loss of more than 40 million cubic meters of water. The main causes are the intensive withdrawals of the Sforza Cesarini well, which supplies eleven municipalities, and the sealing of soils through urbanization, which hinders aquifer recharge. 
+            
+            The analysis used a Landsat 8 collection filtered between June 1 and September 30, 2025. The MNDWI was computed with bands B3 (green) and B6 (SWIR1) on the median composite, using the standard threshold MNDWI > 0 to identify water. 
+            The overall map clearly highlights the two volcanic lakes of the area, Albano and the smaller Nemi, while the rest of the territory, whether urban, agricultural or forested, shows low values. 
+            The core of the work is a ten-year comparison between 2015 and 2025 on Lake Albano alone, obtained by extracting and overlaying the lake outlines of the two years. The perimeters almost completely coincide along the southern and eastern shores, which are steep and rocky. Along the northern shore, near Via Spiaggia del Lago, the 2025 contour is set back relative to the 2015 one. This is the morphologically flattest stretch, where even small changes in level produce a visible retreat. 
+            The result is consistent with the decline documented by hydrometric measurements and confirms the usefulness of the index for monitoring long-term hydrological processes.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+   <!-- Bottom Box with Links (Report & GEE Code) -->
+    <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-cremaScuro dark:border-darkBorder shadow-sm flex flex-col md:flex-row justify-around gap-6 transition-colors duration-300">
+      <div class="space-y-1">
+        <p class="font-bold text-verdeForesta dark:text-emerald-400 text-lg flex items-center gap-2">
+          <i data-lucide="file-text" class="w-5 h-5 text-terraSiena dark:text-emerald-500"></i> report:
+        </p>
+        <a href="../assets/docs/Ex4_Formicola.pdf" target="_blank" class="text-terraSiena dark:text-emerald-400 hover:underline font-medium text-sm inline-block">
+          Open Complete PDF Report →
+        </a>
+      </div>
+      <div class="space-y-1">
+        <p class="font-bold text-verdeForesta dark:text-emerald-400 text-lg flex items-center gap-2">
+          <i data-lucide="code-2" class="w-5 h-5 text-terraSiena dark:text-emerald-500"></i> codice GEE:
+        </p>
+        <a href="https://gist.github.com/saraformicola02/64dc803eb2599f7d01b3cb8ddfed5474" target="_blank" class="text-terraSiena dark:text-emerald-400 hover:underline font-medium text-sm inline-block">
+          Open Earth Engine Script →
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // 1. Initialize Icons
+    lucide.createIcons();
+
+    // 2. Custom Cursor
+    const cursor = document.getElementById('custom-cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    // 3. Dark Mode Toggle Script
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      htmlElement.classList.add('dark');
+    } else {
+      htmlElement.classList.remove('dark');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // 4. Image Carousel Logic
+    let currentIndex = 0;
+    const container = document.getElementById('carouselImages');
+    const totalSlides = container.children.length;
+
+    function updateCarousel() {
+      container.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+  </script>
+</body>
+</html>

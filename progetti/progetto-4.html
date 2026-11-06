@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details | Sara Formicola</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons Library -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Custom Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            crema: '#FDFBF7',
+            cremaScuro: '#F4EFE6',
+            verdedatabase: '#1C2A23',
+            verdeForesta: '#2D5A27',
+            verdeOliva: '#556B2F',
+            terraSiena: '#C86D51',
+            // Colori Dark Mode
+            darkBg: '#121C17',
+            darkCard: '#1A2821',
+            darkBorder: '#273B31',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Stili Cursore Personalizzato -->
+  <style>
+    body {
+      cursor: default;
+    }
+    #custom-cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(135, 169, 107, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 15px rgba(135, 169, 107, 0.8), 0 0 30px rgba(135, 169, 107, 0.4);
+      transition: transform 0.15s ease-out, background-color 0.2s ease, width 0.2s ease, height 0.2s ease;
+    }
+    a:hover ~ #custom-cursor, button:hover ~ #custom-cursor {
+      width: 32px;
+      height: 32px;
+      background-color: rgba(200, 109, 81, 0.5);
+      box-shadow: 0 0 20px rgba(200, 109, 81, 0.8);
+    }
+  </style>
+</head>
+<body class="bg-crema dark:bg-darkBg text-verdedatabase dark:text-slate-200 font-sans antialiased transition-colors duration-300">
+
+  <!-- Elemento Cursore -->
+  <div id="custom-cursor"></div>
+
+  <!-- Header / Navigation -->
+  <header class="bg-crema dark:bg-darkBg border-b border-cremaScuro dark:border-darkBorder py-4 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+      <a href="../index.html" class="text-verdeForesta dark:text-emerald-400 hover:text-terraSiena dark:hover:text-emerald-300 font-semibold flex items-center gap-2 transition">
+        <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Home
+      </a>
+
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="p-2 rounded-full border border-cremaScuro dark:border-darkBorder bg-white dark:bg-darkCard hover:bg-cremaScuro dark:hover:bg-darkBorder transition text-slate-700 dark:text-slate-200" title="Switch Theme">
+        <i id="theme-icon-sun" data-lucide="sun" class="w-5 h-5 hidden dark:block text-amber-400"></i>
+        <i id="theme-icon-moon" data-lucide="moon" class="w-5 h-5 block dark:hidden text-verdeForesta"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-10 space-y-10">
+
+    <!-- Top Grid: Image Gallery (Left) & Explanation (Right) -->
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+      
+      <!-- Image Carousel Gallery -->
+      <div class="relative rounded-2xl overflow-hidden border border-cremaScuro dark:border-darkBorder shadow-md bg-slate-900 group">
+        <div id="carouselImages" class="flex transition-transform duration-500 ease-out">
+          <img src="../assets/img/es5.5.png" alt="Project Image 1" class="w-full h-[380px] object-cover flex-shrink-0">
+          <img src="../assets/img/es5.4.png" alt="Project Image 2" class="w-full h-[380px] object-cover flex-shrink-0">
+          <img src="../assets/img/es5.6.png" alt="Project Image 1" class="w-full h-[380px] object-cover flex-shrink-0">
+       </div>
+        <button onclick="prevSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 flex items-center justify-center">
+          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </button>
+        <button onclick="nextSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 flex items-center justify-center">
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Text Column Explanation -->
+     <div class="space-y-4">
+        <span class="text-xs font-bold text-terraSiena dark:text-emerald-500 uppercase tracking-wider flex items-center gap-1">
+          <i data-lucide="tag" class="w-3.5 h-3.5"></i> Environmental Assessment
+        </span>
+        <h1 class="text-3xl font-extrabold text-verdeForesta dark:text-emerald-400">Unsupervised Classification with the K-means Algorithm of Landsat 7 Imagery in Google Earth Engine for Land Cover Mapping of the Island of Mallorca (Spain, 2020)</h1>
+        <div class="prose text-slate-700 dark:text-slate-300 leading-relaxed text-sm space-y-3">
+          <p>
+            Machine learning allows a system to learn from data without being explicitly programmed, and in remote sensing it makes it possible to handle high-dimensional imagery and complex spectral signatures. 
+            In unsupervised learning no labels are provided: the algorithm searches for structure in the data and groups pixels according to their spectral similarity. The output is a set of clusters that carry no meaning in themselves, so the operator must interpret them afterwards, using prior knowledge or reference data, and assign them to land cover categories. 
+            
+            This project applies the approach to the island of Mallorca, Spain, with the goal of automatically classify its main land cover types into four classes. 
+            The method chosen is K-means, the most widely used clustering algorithm in remote sensing. Given a number K of clusters, it places initial centroids in feature space, assigns each pixel to the nearest one, recomputes each centroid as the mean of its assigned pixels, and repeats these last two steps until the assignments no longer change significantly. 
+            The analysis was carried out in Google Earth Engine on Landsat 7 Level 2, Collection 2, Tier 1 imagery acquired between August 1 and December 31, 2020, excluding scenes with more than 50% cloud cover. From the median composite, a random sample of 5,000 pixels was extracted within the area of interest at the native Landsat resolution of 30 meters. These pixels and their multispectral signatures formed the training set on which the clusterer was fitted. 
+            The trained model was then applied to the entire image, assigning every pixel to one of the four classes. The interpretation of the clusters rests on their geographic distribution. Brown corresponds to agricultural areas, pink to urban surfaces and bare soil, yellow to natural vegetation, and green to water and the surrounding sea. 
+            The final map is consistent with the known morphology and land use of the island, which shows that K-means can provide a reliable first mapping of land cover even without reference data or training labels.
+           </p>
+        </div>
+      </div>
+
+    </div>
+
+   <!-- Bottom Box with Links (Report & GEE Code) -->
+    <div class="bg-white dark:bg-darkCard p-6 rounded-2xl border border-cremaScuro dark:border-darkBorder shadow-sm flex flex-col md:flex-row justify-around gap-6 transition-colors duration-300">
+      <div class="space-y-1">
+        <p class="font-bold text-verdeForesta dark:text-emerald-400 text-lg flex items-center gap-2">
+          <i data-lucide="file-text" class="w-5 h-5 text-terraSiena dark:text-emerald-500"></i> report:
+        </p>
+        <a href="../assets/docs/Ex5_Formicola.pdf" target="_blank" class="text-terraSiena dark:text-emerald-400 hover:underline font-medium text-sm inline-block">
+          Open Complete PDF Report →
+        </a>
+    </div>
+
+  </main>
+
+  <script>
+    // 1. Initialize Icons
+    lucide.createIcons();
+
+    // 2. Custom Cursor
+    const cursor = document.getElementById('custom-cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    // 3. Dark Mode Toggle Script
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      htmlElement.classList.add('dark');
+    } else {
+      htmlElement.classList.remove('dark');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // 4. Image Carousel Logic
+    let currentIndex = 0;
+    const container = document.getElementById('carouselImages');
+    const totalSlides = container.children.length;
+
+    function updateCarousel() {
+      container.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+  </script>
+</body>
+</html>
